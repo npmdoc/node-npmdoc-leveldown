@@ -1,0 +1,1414 @@
+<div class="apidocDiv">
+<style>
+/*csslint
+*/
+.apidocDiv {
+    background: #fff;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.apidocDiv a[href] {
+    color: #33f;
+    font-weight: bold;
+    text-decoration: none;
+}
+.apidocDiv a[href]:hover {
+    text-decoration: underline;
+}
+.apidocCodeCommentSpan {
+    background: #bbf;
+    color: #000;
+    display: block;
+}
+.apidocCodeKeywordSpan {
+    color: #d00;
+    font-weight: bold;
+}
+.apidocCodePre {
+    background: #eef;
+    border: 1px solid;
+    color: #777;
+    padding: 5px;
+    white-space: pre-wrap;
+}
+.apidocFooterDiv {
+    margin-top: 20px;
+    text-align: center;
+}
+.apidocModuleLi {
+    margin-top: 10px;
+}
+.apidocSectionDiv {
+    border-top: 1px solid;
+    margin-top: 20px;
+}
+.apidocSignatureSpan {
+    color: #777;
+    font-weight: bold;
+}
+</style>
+<h1>api documentation for
+    <a
+
+        href="https://github.com/level/leveldown"
+
+    >leveldown (v1.6.0)</a>
+</h1>
+<h4>A Node.js LevelDB binding, primary backend for LevelUP</h4>
+<div class="apidocSectionDiv"><a
+    href="#apidoc.tableOfContents"
+    id="apidoc.tableOfContents"
+><h1>table of contents</h1></a><ol>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.leveldown">module leveldown</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.chained_batch">
+            function <span class="apidocSignatureSpan">leveldown.</span>chained_batch
+            <span class="apidocSignatureSpan">(db)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.destroy">
+            function <span class="apidocSignatureSpan">leveldown.</span>destroy
+            <span class="apidocSignatureSpan">(location, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.iterator">
+            function <span class="apidocSignatureSpan">leveldown.</span>iterator
+            <span class="apidocSignatureSpan">(db, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.repair">
+            function <span class="apidocSignatureSpan">leveldown.</span>repair
+            <span class="apidocSignatureSpan">(location, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_">
+            function <span class="apidocSignatureSpan">leveldown.</span>super_
+            <span class="apidocSignatureSpan">(location)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">leveldown.</span>chained_batch.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">leveldown.</span>iterator.prototype</span>
+
+        </li>
+
+        <li>
+
+            <span class="apidocSignatureSpan">object <span class="apidocSignatureSpan">leveldown.</span>super_.prototype</span>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.leveldown.chained_batch">module leveldown.chained_batch</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.chained_batch.chained_batch">
+            function <span class="apidocSignatureSpan">leveldown.</span>chained_batch
+            <span class="apidocSignatureSpan">(db)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.chained_batch.super_">
+            function <span class="apidocSignatureSpan">leveldown.chained_batch.</span>super_
+            <span class="apidocSignatureSpan">(db)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.leveldown.chained_batch.prototype">module leveldown.chained_batch.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.chained_batch.prototype._clear">
+            function <span class="apidocSignatureSpan">leveldown.chained_batch.prototype.</span>_clear
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.chained_batch.prototype._del">
+            function <span class="apidocSignatureSpan">leveldown.chained_batch.prototype.</span>_del
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.chained_batch.prototype._put">
+            function <span class="apidocSignatureSpan">leveldown.chained_batch.prototype.</span>_put
+            <span class="apidocSignatureSpan">(key, value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.chained_batch.prototype._write">
+            function <span class="apidocSignatureSpan">leveldown.chained_batch.prototype.</span>_write
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.leveldown.iterator">module leveldown.iterator</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.iterator.iterator">
+            function <span class="apidocSignatureSpan">leveldown.</span>iterator
+            <span class="apidocSignatureSpan">(db, options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.iterator.super_">
+            function <span class="apidocSignatureSpan">leveldown.iterator.</span>super_
+            <span class="apidocSignatureSpan">(db)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.leveldown.iterator.prototype">module leveldown.iterator.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.iterator.prototype._end">
+            function <span class="apidocSignatureSpan">leveldown.iterator.prototype.</span>_end
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.iterator.prototype._next">
+            function <span class="apidocSignatureSpan">leveldown.iterator.prototype.</span>_next
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.iterator.prototype.seek">
+            function <span class="apidocSignatureSpan">leveldown.iterator.prototype.</span>seek
+            <span class="apidocSignatureSpan">(target)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.leveldown.super_">module leveldown.super_</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.super_">
+            function <span class="apidocSignatureSpan">leveldown.</span>super_
+            <span class="apidocSignatureSpan">(location)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+    <li class="apidocModuleLi"><a href="#apidoc.module.leveldown.super_.prototype">module leveldown.super_.prototype</a><ol>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.prototype._chainedBatch">
+            function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>_chainedBatch
+            <span class="apidocSignatureSpan">()</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.prototype._checkKey">
+            function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>_checkKey
+            <span class="apidocSignatureSpan">(obj, type)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.prototype._isBuffer">
+            function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>_isBuffer
+            <span class="apidocSignatureSpan">(obj)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.prototype._serializeKey">
+            function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>_serializeKey
+            <span class="apidocSignatureSpan">(key)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.prototype._serializeValue">
+            function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>_serializeValue
+            <span class="apidocSignatureSpan">(value)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.prototype._setupIteratorOptions">
+            function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>_setupIteratorOptions
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.prototype.approximateSize">
+            function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>approximateSize
+            <span class="apidocSignatureSpan">(start, end, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.prototype.batch">
+            function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>batch
+            <span class="apidocSignatureSpan">(array, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.prototype.close">
+            function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>close
+            <span class="apidocSignatureSpan">(callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.prototype.del">
+            function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>del
+            <span class="apidocSignatureSpan">(key, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.prototype.get">
+            function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>get
+            <span class="apidocSignatureSpan">(key, options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.prototype.iterator">
+            function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>iterator
+            <span class="apidocSignatureSpan">(options)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.prototype.open">
+            function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>open
+            <span class="apidocSignatureSpan">(options, callback)</span>
+            </a>
+
+        </li>
+
+        <li>
+
+            <a class="apidocElementLiA" href="#apidoc.element.leveldown.super_.prototype.put">
+            function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>put
+            <span class="apidocSignatureSpan">(key, value, options, callback)</span>
+            </a>
+
+        </li>
+
+    </ol></li>
+
+</ol></div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.leveldown" id="apidoc.module.leveldown">module leveldown</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.chained_batch" id="apidoc.element.leveldown.chained_batch">
+        function <span class="apidocSignatureSpan">leveldown.</span>chained_batch
+        <span class="apidocSignatureSpan">(db)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ChainedBatch(db) {
+  AbstractChainedBatch.call(this, db)
+  this.binding = db.binding.batch()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.destroy" id="apidoc.element.leveldown.destroy">
+        function <span class="apidocSignatureSpan">leveldown.</span>destroy
+        <span class="apidocSignatureSpan">(location, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">destroy = function (location, callback) {
+  if (arguments.length &#x3c; 2)
+    throw new Error(&#x27;destroy() requires `location` and `callback` arguments&#x27;)
+
+  if (typeof location != &#x27;string&#x27;)
+    throw new Error(&#x27;destroy() requires a location string argument&#x27;)
+
+  if (typeof callback != &#x27;function&#x27;)
+    throw new Error(&#x27;destroy() requires a callback function argument&#x27;)
+
+  binding.destroy(location, callback)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  * &#x3c;a href=&#x22;#leveldown_approximateSize&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;leveldown#approximateSize()&#x3c;/b&#x3e
+;&#x3c;/code&#x3e;&#x3c;/a&#x3e;
+  * &#x3c;a href=&#x22;#leveldown_compactRange&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;leveldown#compactRange()&#x3c;/b&#x3e;&#x3c
+;/code&#x3e;&#x3c;/a&#x3e;
+  * &#x3c;a href=&#x22;#leveldown_getProperty&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;leveldown#getProperty()&#x3c;/b&#x3e;&#x3c
+;/code&#x3e;&#x3c;/a&#x3e;
+  * &#x3c;a href=&#x22;#leveldown_iterator&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;leveldown#iterator()&#x3c;/b&#x3e;&#x3c;/code
+&#x3e;&#x3c;/a&#x3e;
+  * &#x3c;a href=&#x22;#iterator_next&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;iterator#next()&#x3c;/b&#x3e;&#x3c;/code&#x3e;&#x3c
+;/a&#x3e;
+  * &#x3c;a href=&#x22;#iterator_seek&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;iterator#seek()&#x3c;/b&#x3e;&#x3c;/code&#x3e;&#x3c
+;/a&#x3e;
+  * &#x3c;a href=&#x22;#iterator_end&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;iterator#end()&#x3c;/b&#x3e;&#x3c;/code&#x3e;&#x3c;/
+a&#x3e;
+  * &#x3c;a href=&#x22;#leveldown_destroy&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;leveldown.<span class="apidocCodeKeywordSpan">
+destroy</span>()&#x3c;/b&#x3e;&#x3c;/code&#x3e;&#x3c;/a&#x3e;
+  * &#x3c;a href=&#x22;#leveldown_repair&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;leveldown.repair()&#x3c;/b&#x3e;&#x3c;/code&#x3e
+;&#x3c;/a&#x3e;
+
+
+--------------------------------------------------------
+&#x3c;a name=&#x22;ctor&#x22;&#x3e;&#x3c;/a&#x3e;
+### leveldown(location)
+&#x3c;code&#x3e;leveldown()&#x3c;/code&#x3e; returns a new **LevelDOWN** instance. `location` is a String pointing to the LevelDB
+ location to be opened.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.iterator" id="apidoc.element.leveldown.iterator">
+        function <span class="apidocSignatureSpan">leveldown.</span>iterator
+        <span class="apidocSignatureSpan">(db, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Iterator(db, options) {
+  AbstractIterator.call(this, db)
+
+  this.binding    = db.binding.iterator(options)
+  this.cache      = null
+  this.finished   = false
+  this.fastFuture = fastFuture()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    , AbstractIterator = require(&#x27;abstract-leveldown&#x27;).AbstractIterator
+    , fastFuture       = require(&#x27;fast-future&#x27;)
+
+
+function Iterator (db, options) {
+  AbstractIterator.call(this, db)
+
+  this.binding    = db.binding.<span class="apidocCodeKeywordSpan">iterator</span>(options)
+  this.cache      = null
+  this.finished   = false
+  this.fastFuture = fastFuture()
+}
+
+util.inherits(Iterator, AbstractIterator)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.repair" id="apidoc.element.leveldown.repair">
+        function <span class="apidocSignatureSpan">leveldown.</span>repair
+        <span class="apidocSignatureSpan">(location, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">repair = function (location, callback) {
+  if (arguments.length &#x3c; 2)
+    throw new Error(&#x27;repair() requires `location` and `callback` arguments&#x27;)
+
+  if (typeof location != &#x27;string&#x27;)
+    throw new Error(&#x27;repair() requires a location string argument&#x27;)
+
+  if (typeof callback != &#x27;function&#x27;)
+    throw new Error(&#x27;repair() requires a callback function argument&#x27;)
+
+  binding.repair(location, callback)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  * &#x3c;a href=&#x22;#leveldown_compactRange&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;leveldown#compactRange()&#x3c;/b&#x3e;&#x3c
+;/code&#x3e;&#x3c;/a&#x3e;
+  * &#x3c;a href=&#x22;#leveldown_getProperty&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;leveldown#getProperty()&#x3c;/b&#x3e;&#x3c
+;/code&#x3e;&#x3c;/a&#x3e;
+  * &#x3c;a href=&#x22;#leveldown_iterator&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;leveldown#iterator()&#x3c;/b&#x3e;&#x3c;/code
+&#x3e;&#x3c;/a&#x3e;
+  * &#x3c;a href=&#x22;#iterator_next&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;iterator#next()&#x3c;/b&#x3e;&#x3c;/code&#x3e;&#x3c
+;/a&#x3e;
+  * &#x3c;a href=&#x22;#iterator_seek&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;iterator#seek()&#x3c;/b&#x3e;&#x3c;/code&#x3e;&#x3c
+;/a&#x3e;
+  * &#x3c;a href=&#x22;#iterator_end&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;iterator#end()&#x3c;/b&#x3e;&#x3c;/code&#x3e;&#x3c;/
+a&#x3e;
+  * &#x3c;a href=&#x22;#leveldown_destroy&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;leveldown.destroy()&#x3c;/b&#x3e;&#x3c;/code&#
+x3e;&#x3c;/a&#x3e;
+  * &#x3c;a href=&#x22;#leveldown_repair&#x22;&#x3e;&#x3c;code&#x3e;&#x3c;b&#x3e;leveldown.<span class="apidocCodeKeywordSpan">repair
+</span>()&#x3c;/b&#x3e;&#x3c;/code&#x3e;&#x3c;/a&#x3e;
+
+
+--------------------------------------------------------
+&#x3c;a name=&#x22;ctor&#x22;&#x3e;&#x3c;/a&#x3e;
+### leveldown(location)
+&#x3c;code&#x3e;leveldown()&#x3c;/code&#x3e; returns a new **LevelDOWN** instance. `location` is a String pointing to the LevelDB
+ location to be opened.
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_" id="apidoc.element.leveldown.super_">
+        function <span class="apidocSignatureSpan">leveldown.</span>super_
+        <span class="apidocSignatureSpan">(location)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function AbstractLevelDOWN(location) {
+  if (!arguments.length || location === undefined)
+    throw new Error(&#x27;constructor requires at least a location argument&#x27;)
+
+  if (typeof location != &#x27;string&#x27;)
+    throw new Error(&#x27;constructor requires a location string argument&#x27;)
+
+  this.location = location
+  this.status = &#x27;new&#x27;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+
+
+
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.leveldown.chained_batch" id="apidoc.module.leveldown.chained_batch">module leveldown.chained_batch</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.chained_batch.chained_batch" id="apidoc.element.leveldown.chained_batch.chained_batch">
+        function <span class="apidocSignatureSpan">leveldown.</span>chained_batch
+        <span class="apidocSignatureSpan">(db)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function ChainedBatch(db) {
+  AbstractChainedBatch.call(this, db)
+  this.binding = db.binding.batch()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.chained_batch.super_" id="apidoc.element.leveldown.chained_batch.super_">
+        function <span class="apidocSignatureSpan">leveldown.chained_batch.</span>super_
+        <span class="apidocSignatureSpan">(db)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function AbstractChainedBatch(db) {
+  this._db         = db
+  this._operations = []
+  this._written    = false
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.leveldown.chained_batch.prototype" id="apidoc.module.leveldown.chained_batch.prototype">module leveldown.chained_batch.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.chained_batch.prototype._clear" id="apidoc.element.leveldown.chained_batch.prototype._clear">
+        function <span class="apidocSignatureSpan">leveldown.chained_batch.prototype.</span>_clear
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_clear = function (key) {
+  this.binding.clear(key)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.chained_batch.prototype._del" id="apidoc.element.leveldown.chained_batch.prototype._del">
+        function <span class="apidocSignatureSpan">leveldown.chained_batch.prototype.</span>_del
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_del = function (key) {
+  this.binding.del(key)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.chained_batch.prototype._put" id="apidoc.element.leveldown.chained_batch.prototype._put">
+        function <span class="apidocSignatureSpan">leveldown.chained_batch.prototype.</span>_put
+        <span class="apidocSignatureSpan">(key, value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_put = function (key, value) {
+  this.binding.put(key, value)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.chained_batch.prototype._write" id="apidoc.element.leveldown.chained_batch.prototype._write">
+        function <span class="apidocSignatureSpan">leveldown.chained_batch.prototype.</span>_write
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_write = function (options, callback) {
+  this.binding.write(options, callback)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.leveldown.iterator" id="apidoc.module.leveldown.iterator">module leveldown.iterator</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.iterator.iterator" id="apidoc.element.leveldown.iterator.iterator">
+        function <span class="apidocSignatureSpan">leveldown.</span>iterator
+        <span class="apidocSignatureSpan">(db, options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function Iterator(db, options) {
+  AbstractIterator.call(this, db)
+
+  this.binding    = db.binding.iterator(options)
+  this.cache      = null
+  this.finished   = false
+  this.fastFuture = fastFuture()
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    , AbstractIterator = require(&#x27;abstract-leveldown&#x27;).AbstractIterator
+    , fastFuture       = require(&#x27;fast-future&#x27;)
+
+
+function Iterator (db, options) {
+  AbstractIterator.call(this, db)
+
+  this.binding    = db.binding.<span class="apidocCodeKeywordSpan">iterator</span>(options)
+  this.cache      = null
+  this.finished   = false
+  this.fastFuture = fastFuture()
+}
+
+util.inherits(Iterator, AbstractIterator)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.iterator.super_" id="apidoc.element.leveldown.iterator.super_">
+        function <span class="apidocSignatureSpan">leveldown.iterator.</span>super_
+        <span class="apidocSignatureSpan">(db)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function AbstractIterator(db) {
+  this.db = db
+  this._ended = false
+  this._nexting = false
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.leveldown.iterator.prototype" id="apidoc.module.leveldown.iterator.prototype">module leveldown.iterator.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.iterator.prototype._end" id="apidoc.element.leveldown.iterator.prototype._end">
+        function <span class="apidocSignatureSpan">leveldown.iterator.prototype.</span>_end
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_end = function (callback) {
+  delete this.cache
+  this.binding.end(callback)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.iterator.prototype._next" id="apidoc.element.leveldown.iterator.prototype._next">
+        function <span class="apidocSignatureSpan">leveldown.iterator.prototype.</span>_next
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_next = function (callback) {
+  var that = this
+    , key
+    , value
+
+  if (this.cache &#x26;&#x26; this.cache.length) {
+    key   = this.cache.pop()
+    value = this.cache.pop()
+
+    this.fastFuture(function () {
+      callback(null, key, value)
+    })
+
+  } else if (this.finished) {
+    this.fastFuture(function () {
+      callback()
+    })
+  } else {
+    this.binding.next(function (err, array, finished) {
+      if (err) return callback(err)
+
+      that.cache    = array
+      that.finished = finished
+      that._next(callback)
+    })
+  }
+
+  return this
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    })
+  } else {
+    this.binding.next(function (err, array, finished) {
+      if (err) return callback(err)
+
+      that.cache    = array
+      that.finished = finished
+      that.<span class="apidocCodeKeywordSpan">_next</span>(callback)
+    })
+  }
+
+  return this
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.iterator.prototype.seek" id="apidoc.element.leveldown.iterator.prototype.seek">
+        function <span class="apidocSignatureSpan">leveldown.iterator.prototype.</span>seek
+        <span class="apidocSignatureSpan">(target)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">seek = function (target) {
+  if (this._ended)
+    throw new Error(&#x27;cannot call seek() after end()&#x27;)
+  if (this._nexting)
+    throw new Error(&#x27;cannot call seek() before next() has completed&#x27;)
+
+  if (typeof target !== &#x27;string&#x27; &#x26;&#x26; !Buffer.isBuffer(target))
+    throw new Error(&#x27;seek() requires a string or buffer key&#x27;)
+  if (target.length == 0)
+    throw new Error(&#x27;cannot seek() to an empty key&#x27;)
+
+  this.cache = null
+  this.binding.seek(target)
+  this.finished = false
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+if (typeof target !== &#x27;string&#x27; &#x26;&#x26; !Buffer.isBuffer(target))
+  throw new Error(&#x27;seek() requires a string or buffer key&#x27;)
+if (target.length == 0)
+  throw new Error(&#x27;cannot seek() to an empty key&#x27;)
+
+this.cache = null
+this.binding.<span class="apidocCodeKeywordSpan">seek</span>(target)
+this.finished = false
+}
+
+Iterator.prototype._next = function (callback) {
+var that = this
+  , key
+  , value
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.leveldown.super_" id="apidoc.module.leveldown.super_">module leveldown.super_</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.super_" id="apidoc.element.leveldown.super_.super_">
+        function <span class="apidocSignatureSpan">leveldown.</span>super_
+        <span class="apidocSignatureSpan">(location)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">function AbstractLevelDOWN(location) {
+  if (!arguments.length || location === undefined)
+    throw new Error(&#x27;constructor requires at least a location argument&#x27;)
+
+  if (typeof location != &#x27;string&#x27;)
+    throw new Error(&#x27;constructor requires a location string argument&#x27;)
+
+  this.location = location
+  this.status = &#x27;new&#x27;
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocSectionDiv">
+<h1><a href="#apidoc.module.leveldown.super_.prototype" id="apidoc.module.leveldown.super_.prototype">module leveldown.super_.prototype</a></h1>
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.prototype._chainedBatch" id="apidoc.element.leveldown.super_.prototype._chainedBatch">
+        function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>_chainedBatch
+        <span class="apidocSignatureSpan">()</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_chainedBatch = function () {
+  return new AbstractChainedBatch(this)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.prototype._checkKey" id="apidoc.element.leveldown.super_.prototype._checkKey">
+        function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>_checkKey
+        <span class="apidocSignatureSpan">(obj, type)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_checkKey = function (obj, type) {
+  if (obj === null || obj === undefined)
+    return new Error(type + &#x27; cannot be `null` or `undefined`&#x27;)
+
+  if (this._isBuffer(obj) &#x26;&#x26; obj.length === 0)
+    return new Error(type + &#x27; cannot be an empty Buffer&#x27;)
+  else if (String(obj) === &#x27;&#x27;)
+    return new Error(type + &#x27; cannot be an empty String&#x27;)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.prototype._isBuffer" id="apidoc.element.leveldown.super_.prototype._isBuffer">
+        function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>_isBuffer
+        <span class="apidocSignatureSpan">(obj)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_isBuffer = function (obj) {
+  return Buffer.isBuffer(obj)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.prototype._serializeKey" id="apidoc.element.leveldown.super_.prototype._serializeKey">
+        function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>_serializeKey
+        <span class="apidocSignatureSpan">(key)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_serializeKey = function (key) {
+  return this._isBuffer(key)
+    ? key
+    : String(key)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.prototype._serializeValue" id="apidoc.element.leveldown.super_.prototype._serializeValue">
+        function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>_serializeValue
+        <span class="apidocSignatureSpan">(value)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_serializeValue = function (value) {
+  return this._isBuffer(value) || process.browser || value == null
+    ? value
+    : String(value)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.prototype._setupIteratorOptions" id="apidoc.element.leveldown.super_.prototype._setupIteratorOptions">
+        function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>_setupIteratorOptions
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">_setupIteratorOptions = function (options) {
+  var self = this
+
+  options = xtend(options)
+
+  ;[ &#x27;start&#x27;, &#x27;end&#x27;, &#x27;gt&#x27;, &#x27;gte&#x27;, &#x27;lt&#x27;, &#x27;lte&#x27; ].forEach(function (o) {
+    if (options[o] &#x26;&#x26; self._isBuffer(options[o]) &#x26;&#x26; options[o].length === 0)
+      delete options[o]
+  })
+
+  options.reverse = !!options.reverse
+  options.keys = options.keys != false
+  options.values = options.values != false
+  options.limit = &#x27;limit&#x27; in options ? options.limit : -1
+  options.keyAsBuffer = options.keyAsBuffer != false
+  options.valueAsBuffer = options.valueAsBuffer != false
+
+  return options
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">n/a</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.prototype.approximateSize" id="apidoc.element.leveldown.super_.prototype.approximateSize">
+        function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>approximateSize
+        <span class="apidocSignatureSpan">(start, end, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">approximateSize = function (start, end, callback) {
+  if (   start == null
+      || end == null
+      || typeof start == &#x27;function&#x27;
+      || typeof end == &#x27;function&#x27;) {
+    throw new Error(&#x27;approximateSize() requires valid `start`, `end` and `callback` arguments&#x27;)
+  }
+
+  if (typeof callback != &#x27;function&#x27;)
+    throw new Error(&#x27;approximateSize() requires a callback argument&#x27;)
+
+  start = this._serializeKey(start)
+  end = this._serializeKey(end)
+
+  if (typeof this._approximateSize == &#x27;function&#x27;)
+    return this._approximateSize(start, end, callback)
+
+  process.nextTick(function () {
+    callback(null, 0)
+  })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+LevelDOWN.prototype._batch = function (operations, options, callback) {
+  return this.binding.batch(operations, options, callback)
+}
+
+
+LevelDOWN.prototype._approximateSize = function (start, end, callback) {
+  this.binding.<span class="apidocCodeKeywordSpan">approximateSize</span>(start, end, callback)
+}
+
+
+LevelDOWN.prototype.compactRange = function (start, end, callback) {
+  this.binding.compactRange(start, end, callback)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.prototype.batch" id="apidoc.element.leveldown.super_.prototype.batch">
+        function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>batch
+        <span class="apidocSignatureSpan">(array, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">batch = function (array, options, callback) {
+  if (!arguments.length)
+    return this._chainedBatch()
+
+  if (typeof options == &#x27;function&#x27;)
+    callback = options
+
+  if (typeof array == &#x27;function&#x27;)
+    callback = array
+
+  if (typeof callback != &#x27;function&#x27;)
+    throw new Error(&#x27;batch(array) requires a callback argument&#x27;)
+
+  if (!Array.isArray(array))
+    return callback(new Error(&#x27;batch(array) requires an array argument&#x27;))
+
+  if (!options || typeof options != &#x27;object&#x27;)
+    options = {}
+
+  var i = 0
+    , l = array.length
+    , e
+    , err
+
+  for (; i &#x3c; l; i++) {
+    e = array[i]
+    if (typeof e != &#x27;object&#x27;)
+      continue
+
+    if (err = this._checkKey(e.type, &#x27;type&#x27;))
+      return callback(err)
+
+    if (err = this._checkKey(e.key, &#x27;key&#x27;))
+      return callback(err)
+  }
+
+  if (typeof this._batch == &#x27;function&#x27;)
+    return this._batch(array, options, callback)
+
+  process.nextTick(callback)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+LevelDOWN.prototype._chainedBatch = function () {
+  return new ChainedBatch(this)
+}
+
+
+LevelDOWN.prototype._batch = function (operations, options, callback) {
+  return this.binding.<span class="apidocCodeKeywordSpan">batch</span>(operations, options, callback)
+}
+
+
+LevelDOWN.prototype._approximateSize = function (start, end, callback) {
+  this.binding.approximateSize(start, end, callback)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.prototype.close" id="apidoc.element.leveldown.super_.prototype.close">
+        function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>close
+        <span class="apidocSignatureSpan">(callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">close = function (callback) {
+  var self      = this
+    , oldStatus = this.status
+
+  if (typeof callback != &#x27;function&#x27;)
+    throw new Error(&#x27;close() requires a callback argument&#x27;)
+
+  if (typeof this._close == &#x27;function&#x27;) {
+    this.status = &#x27;closing&#x27;
+    this._close(function (err) {
+      if (err) {
+        self.status = oldStatus
+        return callback(err)
+      }
+      self.status = &#x27;closed&#x27;
+      callback()
+    })
+  } else {
+    this.status = &#x27;closed&#x27;
+    process.nextTick(callback)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+LevelDOWN.prototype._open = function (options, callback) {
+  this.binding.open(options, callback)
+}
+
+
+LevelDOWN.prototype._close = function (callback) {
+  this.binding.<span class="apidocCodeKeywordSpan">close</span>(callback)
+}
+
+
+LevelDOWN.prototype._put = function (key, value, options, callback) {
+  this.binding.put(key, value, options, callback)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.prototype.del" id="apidoc.element.leveldown.super_.prototype.del">
+        function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>del
+        <span class="apidocSignatureSpan">(key, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">del = function (key, options, callback) {
+  var err
+
+  if (typeof options == &#x27;function&#x27;)
+    callback = options
+
+  if (typeof callback != &#x27;function&#x27;)
+    throw new Error(&#x27;del() requires a callback argument&#x27;)
+
+  if (err = this._checkKey(key, &#x27;key&#x27;))
+    return callback(err)
+
+  key = this._serializeKey(key)
+
+  if (typeof options != &#x27;object&#x27;)
+    options = {}
+
+  if (typeof this._del == &#x27;function&#x27;)
+    return this._del(key, options, callback)
+
+  process.nextTick(callback)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+LevelDOWN.prototype._get = function (key, options, callback) {
+  this.binding.get(key, options, callback)
+}
+
+
+LevelDOWN.prototype._del = function (key, options, callback) {
+  this.binding.<span class="apidocCodeKeywordSpan">del</span>(key, options, callback)
+}
+
+
+LevelDOWN.prototype._chainedBatch = function () {
+  return new ChainedBatch(this)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.prototype.get" id="apidoc.element.leveldown.super_.prototype.get">
+        function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>get
+        <span class="apidocSignatureSpan">(key, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">get = function (key, options, callback) {
+  var err
+
+  if (typeof options == &#x27;function&#x27;)
+    callback = options
+
+  if (typeof callback != &#x27;function&#x27;)
+    throw new Error(&#x27;get() requires a callback argument&#x27;)
+
+  if (err = this._checkKey(key, &#x27;key&#x27;))
+    return callback(err)
+
+  key = this._serializeKey(key)
+
+  if (typeof options != &#x27;object&#x27;)
+    options = {}
+
+  options.asBuffer = options.asBuffer != false
+
+  if (typeof this._get == &#x27;function&#x27;)
+    return this._get(key, options, callback)
+
+  process.nextTick(function () { callback(new Error(&#x27;NotFound&#x27;)) })
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+LevelDOWN.prototype._put = function (key, value, options, callback) {
+  this.binding.put(key, value, options, callback)
+}
+
+
+LevelDOWN.prototype._get = function (key, options, callback) {
+  this.binding.<span class="apidocCodeKeywordSpan">get</span>(key, options, callback)
+}
+
+
+LevelDOWN.prototype._del = function (key, options, callback) {
+  this.binding.del(key, options, callback)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.prototype.iterator" id="apidoc.element.leveldown.super_.prototype.iterator">
+        function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>iterator
+        <span class="apidocSignatureSpan">(options)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">iterator = function (options) {
+  if (typeof options != &#x27;object&#x27;)
+    options = {}
+
+  options = this._setupIteratorOptions(options)
+
+  if (typeof this._iterator == &#x27;function&#x27;)
+    return this._iterator(options)
+
+  return new AbstractIterator(this)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+    , AbstractIterator = require(&#x27;abstract-leveldown&#x27;).AbstractIterator
+    , fastFuture       = require(&#x27;fast-future&#x27;)
+
+
+function Iterator (db, options) {
+  AbstractIterator.call(this, db)
+
+  this.binding    = db.binding.<span class="apidocCodeKeywordSpan">iterator</span>(options)
+  this.cache      = null
+  this.finished   = false
+  this.fastFuture = fastFuture()
+}
+
+util.inherits(Iterator, AbstractIterator)
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.prototype.open" id="apidoc.element.leveldown.super_.prototype.open">
+        function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>open
+        <span class="apidocSignatureSpan">(options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">open = function (options, callback) {
+  var self      = this
+    , oldStatus = this.status
+
+  if (typeof options == &#x27;function&#x27;)
+    callback = options
+
+  if (typeof callback != &#x27;function&#x27;)
+    throw new Error(&#x27;open() requires a callback argument&#x27;)
+
+  if (typeof options != &#x27;object&#x27;)
+    options = {}
+
+  options.createIfMissing = options.createIfMissing != false
+  options.errorIfExists = !!options.errorIfExists
+
+  if (typeof this._open == &#x27;function&#x27;) {
+    this.status = &#x27;opening&#x27;
+    this._open(options, function (err) {
+      if (err) {
+        self.status = oldStatus
+        return callback(err)
+      }
+      self.status = &#x27;open&#x27;
+      callback()
+    })
+  } else {
+    this.status = &#x27;open&#x27;
+    process.nextTick(callback)
+  }
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+  this.binding = binding(location)
+}
+
+util.inherits(LevelDOWN, AbstractLevelDOWN)
+
+
+LevelDOWN.prototype._open = function (options, callback) {
+  this.binding.<span class="apidocCodeKeywordSpan">open</span>(options, callback)
+}
+
+
+LevelDOWN.prototype._close = function (callback) {
+  this.binding.close(callback)
+}
+...</pre></li>
+    </ul>
+
+
+
+    <h2>
+        <a href="#apidoc.element.leveldown.super_.prototype.put" id="apidoc.element.leveldown.super_.prototype.put">
+        function <span class="apidocSignatureSpan">leveldown.super_.prototype.</span>put
+        <span class="apidocSignatureSpan">(key, value, options, callback)</span>
+        </a>
+    </h2>
+    <ul>
+    <li>description and source-code<pre class="apidocCodePre">put = function (key, value, options, callback) {
+  var err
+
+  if (typeof options == &#x27;function&#x27;)
+    callback = options
+
+  if (typeof callback != &#x27;function&#x27;)
+    throw new Error(&#x27;put() requires a callback argument&#x27;)
+
+  if (err = this._checkKey(key, &#x27;key&#x27;))
+    return callback(err)
+
+  key = this._serializeKey(key)
+  value = this._serializeValue(value)
+
+  if (typeof options != &#x27;object&#x27;)
+    options = {}
+
+  if (typeof this._put == &#x27;function&#x27;)
+    return this._put(key, value, options, callback)
+
+  process.nextTick(callback)
+}</pre></li>
+    <li>example usage<pre class="apidocCodePre">...
+
+LevelDOWN.prototype._close = function (callback) {
+  this.binding.close(callback)
+}
+
+
+LevelDOWN.prototype._put = function (key, value, options, callback) {
+  this.binding.<span class="apidocCodeKeywordSpan">put</span>(key, value, options, callback)
+}
+
+
+LevelDOWN.prototype._get = function (key, options, callback) {
+  this.binding.get(key, options, callback)
+}
+...</pre></li>
+    </ul>
+
+
+</div>
+
+<div class="apidocFooterDiv">
+    [ this document was created with
+    <a href="https://github.com/kaizhu256/node-utility2" target="_blank">utility2</a>
+    ]
+</div>
+</div>
