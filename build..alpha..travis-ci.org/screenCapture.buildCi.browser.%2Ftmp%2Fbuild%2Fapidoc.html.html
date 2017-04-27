@@ -447,31 +447,25 @@
   binding.destroy(location, callback)
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  * &lt;a href="#leveldown_approximateSize"&gt;&lt;code&gt;&lt;b&gt;leveldown#approximateSize()&lt;/b&gt;
-;&lt;/code&gt;&lt;/a&gt;
-  * &lt;a href="#leveldown_compactRange"&gt;&lt;code&gt;&lt;b&gt;leveldown#compactRange()&lt;/b&gt;&lt;
-;/code&gt;&lt;/a&gt;
-  * &lt;a href="#leveldown_getProperty"&gt;&lt;code&gt;&lt;b&gt;leveldown#getProperty()&lt;/b&gt;&lt;
-;/code&gt;&lt;/a&gt;
-  * &lt;a href="#leveldown_iterator"&gt;&lt;code&gt;&lt;b&gt;leveldown#iterator()&lt;/b&gt;&lt;/code
-&gt;&lt;/a&gt;
-  * &lt;a href="#iterator_next"&gt;&lt;code&gt;&lt;b&gt;iterator#next()&lt;/b&gt;&lt;/code&gt;&lt;
-;/a&gt;
-  * &lt;a href="#iterator_seek"&gt;&lt;code&gt;&lt;b&gt;iterator#seek()&lt;/b&gt;&lt;/code&gt;&lt;
-;/a&gt;
-  * &lt;a href="#iterator_end"&gt;&lt;code&gt;&lt;b&gt;iterator#end()&lt;/b&gt;&lt;/code&gt;&lt;/
-a&gt;
-  * &lt;a href="#leveldown_destroy"&gt;&lt;code&gt;&lt;b&gt;leveldown.<span class="apidocCodeKeywordSpan">
-destroy</span>()&lt;/b&gt;&lt;/code&gt;&lt;/a&gt;
-  * &lt;a href="#leveldown_repair"&gt;&lt;code&gt;&lt;b&gt;leveldown.repair()&lt;/b&gt;&lt;/code&gt;
-;&lt;/a&gt;
+  * Start on correct value when reverse=true, also handle end-of-store case #27 (@kesla)
+  * Ignore empty string/buffer start/end options on iterators (@kesla)
+  * Macro cleanup, replace some with static inline functions (@rvagg)
 
+### 0.2.0 @ Mar 30 2013
 
---------------------------------------------------------
-&lt;a name="ctor"&gt;&lt;/a&gt;
-### leveldown(location)
-&lt;code&gt;leveldown()&lt;/code&gt; returns a new **LevelDOWN** instance. `location` is a String pointing to the LevelDB
- location to be opened.
+  * Windows support--using a combination of libuv and Windows-specific code. See README for details about what's required (@
+rvagg)
+  * leveldown.<span class="apidocCodeKeywordSpan">destroy</span>(location, callback) to delete an existing LevelDB store, exposes
+ LevelDB.DestroyDB() (@rvagg)
+  * leveldown.repair(location, callback) to repair an existing LevelDB store, exposes LevelDB.RepairDB() (@rvagg)
+  * advanced options: writeBufferSize, blockSize, maxOpenFiles, blockRestartInterval, exposes LevelDB options (@rvagg)
+  * chained-batch operations. Argument-less db.batch() will return a new Batch object that can .put() and .del() and then .write
+(). API in flux so not documented yet. (@juliangruber / @rvagg)
+  * auto-cleanup iterators that are left open when you close a database; any iterators left open when you close a database instance
+ will kill your process so we now keep track of iterators and auto-close them before a db.close completes.
+  * Node 0.11 support (no compile warnings)
+
+### 0.1.4 @ Mar 11 2013
 ...</pre></li>
     </ul>
 
@@ -532,29 +526,24 @@ util.inherits(Iterator, AbstractIterator)
   binding.repair(location, callback)
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-  * &lt;a href="#leveldown_compactRange"&gt;&lt;code&gt;&lt;b&gt;leveldown#compactRange()&lt;/b&gt;&lt;
-;/code&gt;&lt;/a&gt;
-  * &lt;a href="#leveldown_getProperty"&gt;&lt;code&gt;&lt;b&gt;leveldown#getProperty()&lt;/b&gt;&lt;
-;/code&gt;&lt;/a&gt;
-  * &lt;a href="#leveldown_iterator"&gt;&lt;code&gt;&lt;b&gt;leveldown#iterator()&lt;/b&gt;&lt;/code
-&gt;&lt;/a&gt;
-  * &lt;a href="#iterator_next"&gt;&lt;code&gt;&lt;b&gt;iterator#next()&lt;/b&gt;&lt;/code&gt;&lt;
-;/a&gt;
-  * &lt;a href="#iterator_seek"&gt;&lt;code&gt;&lt;b&gt;iterator#seek()&lt;/b&gt;&lt;/code&gt;&lt;
-;/a&gt;
-  * &lt;a href="#iterator_end"&gt;&lt;code&gt;&lt;b&gt;iterator#end()&lt;/b&gt;&lt;/code&gt;&lt;/
-a&gt;
-  * &lt;a href="#leveldown_destroy"&gt;&lt;code&gt;&lt;b&gt;leveldown.destroy()&lt;/b&gt;&lt;/code&amp;#
-x3e;&lt;/a&gt;
-  * &lt;a href="#leveldown_repair"&gt;&lt;code&gt;&lt;b&gt;leveldown.<span class="apidocCodeKeywordSpan">repair
-</span>()&lt;/b&gt;&lt;/code&gt;&lt;/a&gt;
+  * Ignore empty string/buffer start/end options on iterators (@kesla)
+  * Macro cleanup, replace some with static inline functions (@rvagg)
 
+### 0.2.0 @ Mar 30 2013
 
---------------------------------------------------------
-&lt;a name="ctor"&gt;&lt;/a&gt;
-### leveldown(location)
-&lt;code&gt;leveldown()&lt;/code&gt; returns a new **LevelDOWN** instance. `location` is a String pointing to the LevelDB
- location to be opened.
+  * Windows support--using a combination of libuv and Windows-specific code. See README for details about what's required (@
+rvagg)
+  * leveldown.destroy(location, callback) to delete an existing LevelDB store, exposes LevelDB.DestroyDB() (@rvagg)
+  * leveldown.<span class="apidocCodeKeywordSpan">repair</span>(location, callback) to repair an existing LevelDB store, exposes
+ LevelDB.RepairDB() (@rvagg)
+  * advanced options: writeBufferSize, blockSize, maxOpenFiles, blockRestartInterval, exposes LevelDB options (@rvagg)
+  * chained-batch operations. Argument-less db.batch() will return a new Batch object that can .put() and .del() and then .write
+(). API in flux so not documented yet. (@juliangruber / @rvagg)
+  * auto-cleanup iterators that are left open when you close a database; any iterators left open when you close a database instance
+ will kill your process so we now keep track of iterators and auto-close them before a db.close completes.
+  * Node 0.11 support (no compile warnings)
+
+### 0.1.4 @ Mar 11 2013
 ...</pre></li>
     </ul>
 
@@ -847,21 +836,25 @@ util.inherits(Iterator, AbstractIterator)
   this.finished = false
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
+* [[`78068f26ca`](https://github.com/level/leveldown/commit/78068f26ca)] - add more iojs versions (Lars-Magnus Skog)
+* [[`ec81d77746`](https://github.com/level/leveldown/commit/ec81d77746)] - use node-gyp-install to make sure correct node-gyp headers
+ are downloaded (Lars-Magnus Skog)
+* [[`245b54a4e6`](https://github.com/level/leveldown/commit/245b54a4e6)] - prepare v1.2.1 (Lars-Magnus Skog)
 
-if (typeof target !== 'string' &amp;&amp; !Buffer.isBuffer(target))
-  throw new Error('seek() requires a string or buffer key')
-if (target.length == 0)
-  throw new Error('cannot seek() to an empty key')
+### 1.2.0 June 1 2015
 
-this.cache = null
-this.binding.<span class="apidocCodeKeywordSpan">seek</span>(target)
-this.finished = false
-}
+* [[`a134de131d`](https://github.com/level/leveldown/commit/a134de131d)] - minor changes based on pr review (Mathias Buus)
+* [[`8ded32b8d3`](https://github.com/level/leveldown/commit/8ded32b8d3)] - added iterator.<span class="apidocCodeKeywordSpan">seek
+</span>() (Mathias Buus)
+* [[`aa982df780`](https://github.com/level/leveldown/commit/aa982df780)] - change NOTICE to Prebuilt binaries section (Lars-Magnus
+ Skog)
+* [[`79412de76f`](https://github.com/level/leveldown/commit/79412de76f)] - solved conflict and updated leveldown-prebuilt to leveldown
+ (Lars-Magnus Skog)
 
-Iterator.prototype._next = function (callback) {
-var that = this
-  , key
-  , value
+### 1.1.0 May 28 2015
+
+* [[`d5da7fa357`](https://github.com/level/leveldown/commit/d5da7fa357)] - upgrade abstract-leveldown, mainly for .status (Julian
+ Gruber)
 ...</pre></li>
     </ul>
 
@@ -1113,18 +1106,18 @@ LevelDOWN.prototype.compactRange = function (start, end, callback) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-LevelDOWN.prototype._chainedBatch = function () {
-  return new ChainedBatch(this)
+const util                 = require('util')
+    , AbstractChainedBatch = require('abstract-leveldown').AbstractChainedBatch
+
+
+function ChainedBatch (db) {
+  AbstractChainedBatch.call(this, db)
+  this.binding = db.binding.<span class="apidocCodeKeywordSpan">batch</span>()
 }
 
 
-LevelDOWN.prototype._batch = function (operations, options, callback) {
-  return this.binding.<span class="apidocCodeKeywordSpan">batch</span>(operations, options, callback)
-}
-
-
-LevelDOWN.prototype._approximateSize = function (start, end, callback) {
-  this.binding.approximateSize(start, end, callback)
+ChainedBatch.prototype._put = function (key, value) {
+  this.binding.put(key, value)
 }
 ...</pre></li>
     </ul>
@@ -1211,18 +1204,18 @@ LevelDOWN.prototype._put = function (key, value, options, callback) {
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
 
-LevelDOWN.prototype._get = function (key, options, callback) {
-  this.binding.get(key, options, callback)
+ChainedBatch.prototype._put = function (key, value) {
+  this.binding.put(key, value)
 }
 
 
-LevelDOWN.prototype._del = function (key, options, callback) {
-  this.binding.<span class="apidocCodeKeywordSpan">del</span>(key, options, callback)
+ChainedBatch.prototype._del = function (key) {
+  this.binding.<span class="apidocCodeKeywordSpan">del</span>(key)
 }
 
 
-LevelDOWN.prototype._chainedBatch = function () {
-  return new ChainedBatch(this)
+ChainedBatch.prototype._clear = function (key) {
+  this.binding.clear(key)
 }
 ...</pre></li>
     </ul>
@@ -1407,19 +1400,19 @@ LevelDOWN.prototype._close = function (callback) {
   process.nextTick(callback)
 }</pre></li>
     <li>example usage<pre class="apidocCodePre">...
-
-LevelDOWN.prototype._close = function (callback) {
-  this.binding.close(callback)
+function ChainedBatch (db) {
+  AbstractChainedBatch.call(this, db)
+  this.binding = db.binding.batch()
 }
 
 
-LevelDOWN.prototype._put = function (key, value, options, callback) {
-  this.binding.<span class="apidocCodeKeywordSpan">put</span>(key, value, options, callback)
+ChainedBatch.prototype._put = function (key, value) {
+  this.binding.<span class="apidocCodeKeywordSpan">put</span>(key, value)
 }
 
 
-LevelDOWN.prototype._get = function (key, options, callback) {
-  this.binding.get(key, options, callback)
+ChainedBatch.prototype._del = function (key) {
+  this.binding.del(key)
 }
 ...</pre></li>
     </ul>
