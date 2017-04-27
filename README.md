@@ -1,6 +1,6 @@
 # npmdoc-leveldown
 
-#### api documentation for  [leveldown (v1.6.0)](https://github.com/level/leveldown)  [![npm package](https://img.shields.io/npm/v/npmdoc-leveldown.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-leveldown) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-leveldown.svg)](https://travis-ci.org/npmdoc/node-npmdoc-leveldown)
+#### basic api documentation for  [leveldown (v1.6.0)](https://github.com/level/leveldown)  [![npm package](https://img.shields.io/npm/v/npmdoc-leveldown.svg?style=flat-square)](https://www.npmjs.org/package/npmdoc-leveldown) [![travis-ci.org build-status](https://api.travis-ci.org/npmdoc/node-npmdoc-leveldown.svg)](https://travis-ci.org/npmdoc/node-npmdoc-leveldown)
 
 #### A Node.js LevelDB binding, primary backend for LevelUP
 
@@ -21,35 +21,67 @@
 ```json
 
 {
-    "name": "leveldown",
-    "description": "A Node.js LevelDB binding, primary backend for LevelUP",
-    "version": "1.6.0",
-    "contributors": [
-        "Rod Vagg <r@va.gg> (https://github.com/rvagg)",
-        "John Chesley <john@chesl.es> (https://github.com/chesles/)",
-        "Jake Verbaten <raynos2@gmail.com> (https://github.com/raynos)",
-        "Dominic Tarr <dominic.tarr@gmail.com> (https://github.com/dominictarr)",
-        "Max Ogden <max@maxogden.com> (https://github.com/maxogden)",
-        "Lars-Magnus Skog <ralphtheninja@riseup.net> (https://github.com/ralphtheninja)",
-        "David Björklund <david.bjorklund@gmail.com> (https://github.com/kesla)",
-        "Julian Gruber <julian@juliangruber.com> (https://github.com/juliangruber)",
-        "Paolo Fragomeni <paolo@async.ly> (https://github.com/hij1nx)",
-        "Anton Whalley <anton.whalley@nearform.com> (https://github.com/No9)",
-        "Matteo Collina <matteo.collina@gmail.com> (https://github.com/mcollina)",
-        "Pedro Teixeira <pedro.teixeira@gmail.com> (https://github.com/pgte)",
-        "James Halliday <mail@substack.net> (https://github.com/substack)",
-        "Gordon Hall <gordonh@member.fsf.org> (https://github.com/bookchin)"
-    ],
-    "repository": {
-        "type": "git",
-        "url": "https://github.com/level/leveldown.git"
+    "bugs": {
+        "url": "https://github.com/level/leveldown/issues"
     },
-    "homepage": "https://github.com/level/leveldown",
-    "keywords": [
-        "leveldb",
-        "level"
+    "contributors": [
+        {
+            "name": "Rod Vagg",
+            "url": "https://github.com/rvagg"
+        },
+        {
+            "name": "John Chesley",
+            "url": "https://github.com/chesles/"
+        },
+        {
+            "name": "Jake Verbaten",
+            "url": "https://github.com/raynos"
+        },
+        {
+            "name": "Dominic Tarr",
+            "url": "https://github.com/dominictarr"
+        },
+        {
+            "name": "Max Ogden",
+            "url": "https://github.com/maxogden"
+        },
+        {
+            "name": "Lars-Magnus Skog",
+            "url": "https://github.com/ralphtheninja"
+        },
+        {
+            "name": "David Björklund",
+            "url": "https://github.com/kesla"
+        },
+        {
+            "name": "Julian Gruber",
+            "url": "https://github.com/juliangruber"
+        },
+        {
+            "name": "Paolo Fragomeni",
+            "url": "https://github.com/hij1nx"
+        },
+        {
+            "name": "Anton Whalley",
+            "url": "https://github.com/No9"
+        },
+        {
+            "name": "Matteo Collina",
+            "url": "https://github.com/mcollina"
+        },
+        {
+            "name": "Pedro Teixeira",
+            "url": "https://github.com/pgte"
+        },
+        {
+            "name": "James Halliday",
+            "url": "https://github.com/substack"
+        },
+        {
+            "name": "Gordon Hall",
+            "url": "https://github.com/bookchin"
+        }
     ],
-    "main": "leveldown.js",
     "dependencies": {
         "abstract-leveldown": "~2.6.1",
         "bindings": "~1.2.1",
@@ -57,6 +89,7 @@
         "nan": "~2.5.1",
         "prebuild-install": "^2.1.0"
     },
+    "description": "A Node.js LevelDB binding, primary backend for LevelUP",
     "devDependencies": {
         "async": "^2.0.1",
         "delayed": "~1.0.1",
@@ -75,14 +108,45 @@
         "slump": "~2.0.0",
         "tape": "^4.5.1"
     },
+    "directories": {},
+    "dist": {
+        "shasum": "e6ec906d2995a8bffd02499f39e95988cd2b230f",
+        "tarball": "https://registry.npmjs.org/leveldown/-/leveldown-1.6.0.tgz"
+    },
+    "gitHead": "113e0ce2f125eb5aa6915a4dba23a18445dc89a6",
+    "gypfile": true,
+    "homepage": "https://github.com/level/leveldown",
+    "keywords": [
+        "leveldb",
+        "level"
+    ],
+    "license": "MIT",
+    "main": "leveldown.js",
+    "maintainers": [
+        {
+            "name": "rvagg"
+        },
+        {
+            "name": "ralphtheninja"
+        },
+        {
+            "name": "juliangruber"
+        }
+    ],
+    "name": "leveldown",
+    "optionalDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/level/leveldown.git"
+    },
     "scripts": {
         "install": "prebuild-install || node-gyp rebuild",
-        "test": "(tape test/*-test.js | faucet) && prebuild-ci",
+        "prebuild": "prebuild --all --strip --verbose",
         "rebuild": "prebuild --compile",
-        "prebuild": "prebuild --all --strip --verbose"
+        "test": "(tape test/*-test.js | faucet) && prebuild-ci"
     },
-    "license": "MIT",
-    "gypfile": true
+    "version": "1.6.0",
+    "bin": {}
 }
 ```
 
